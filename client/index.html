@@ -1,0 +1,307 @@
+
+<!doctype html>
+<html lang='he' dir='rtl'>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <title>רוזן – פרופיל אמן</title>
+    <link rel='stylesheet' href='styles.css?v=1' />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap'
+      rel='stylesheet'
+    />
+  </head>
+  <body>
+    <a href="#music" class="skip-link">דלג לתוכן הראשי</a>
+    <video
+      class='bg-video'
+      src='assets/background/הכל%20בשבילך%20קאנבס.mp4'
+      autoplay
+      muted
+      loop
+      playsinline
+    ></video>
+    <div class='bg-overlay' aria-hidden='true'></div>
+    <div class='container hero hero__inner' id='home'>
+      <h1 class='hero__title'>רוזן</h1>
+      <p class='hero__quote' id='heroQuote' aria-live='polite'></p>
+      <div class='hero__actions'>
+        <a
+          class='hero__platform'
+          href='https://open.spotify.com/artist/0RpY1pW7orbAFfqsl0YNoI'
+          target='_blank'
+          rel='noopener'
+          aria-label='Spotify'
+        >
+          <img
+            class='hero__platform-icon'
+            src='https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/spotify.svg'
+            alt='Spotify'
+            width='24'
+            height='24'
+          />
+        </a>
+        <a
+          class='hero__platform'
+          href='https://music.apple.com/il/artist/%D7%A8%D7%95%D7%96%D7%9F/1738699873'
+          target='_blank'
+          rel='noopener'
+          aria-label='Apple Music'
+        >
+          <img
+            class='hero__platform-icon'
+            src='https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/applemusic.svg'
+            alt='Apple Music'
+            width='24'
+            height='24'
+          />
+        </a>
+        <a
+          class='hero__platform'
+          href='https://youtube.com/@rosenofficial'
+          target='_blank'
+          rel='noopener'
+          aria-label='YouTube'
+        >
+          <img
+            class='hero__platform-icon'
+            src='https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/youtube.svg'
+            alt='YouTube'
+            width='24'
+            height='24'
+          />
+        </a>
+        <a
+          class='hero__platform'
+          href='https://www.deezer.com/us/artist/150277642'
+          target='_blank'
+          rel='noopener'
+          aria-label='Deezer'
+        >
+          <img
+            class='hero__platform-icon'
+            src='https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/deezer.svg'
+            alt='Deezer'
+            width='24'
+            height='24'
+          />
+        </a>
+      </div>
+      <button class='scroll-indicator' id='scrollIndicator' type='button' aria-label='גלול למטה'>
+        ↓
+      </button>
+    </div>
+    <canvas id='viz' aria-hidden='true'></canvas>
+
+    <nav class='topbar'>
+      <div class='brand'>רוזן</div>
+      <div class='topbar__links'>
+        <a href='#music'>שירים</a>
+        <a href='#shows'>הופעות</a>
+        <a href='#merch'>מרצ׳</a>
+        <a href='#gallery'>גלריה</a>
+        <a href='#contact'>צור קשר</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class='section' id='music'>
+        <div class='container'>
+          <h2 class='section__title'>שירים</h2>
+          <div class='grid songs' id='songs'></div>
+        </div>
+      </section>
+
+      <section class='section' id='shows'>
+        <div class='container'>
+          <h2 class='section__title'>הופעות</h2>
+          <p class='section__lead'>אין הופעות קרובות</p>
+          <div class='grid'></div>
+        </div>
+      </section>
+
+      <section class='section' id='merch'>
+        <div class='container'>
+          <h2 class='section__title'>מרצ׳</h2>
+          <p class='section__lead'>הישארו מעודכנים</p>
+          <div class='grid'></div>
+        </div>
+      </section>
+
+      <section class='section' id='gallery'>
+        <div class='container'>
+          <h2 class='section__title'>גלריה</h2>
+          <div class='grid gallery' id='galleryGrid'></div>
+        </div>
+      </section>
+
+      <section class='section' id='platforms'>
+        <div class='container'>
+          <h2 class='section__title'>תמצאו אותי בכל הפלטפורמות</h2>
+          <div class='contact__links'>
+            <a
+              class='hero__platform'
+              href='https://open.spotify.com/artist/0RpY1pW7orbAFfqsl0YNoI'
+              target='_blank'
+              rel='noopener'
+              aria-label='Spotify'
+            >
+              <img
+                class='hero__platform-icon'
+                src='https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/spotify.svg'
+                alt='Spotify'
+                width='24'
+                height='24'
+              />
+            </a>
+            <a
+              class='hero__platform'
+              href='https://music.apple.com/il/artist/%D7%A8%D7%95%D7%96%D7%9F/1738699873'
+              target='_blank'
+              rel='noopener'
+              aria-label='Apple Music'
+            >
+              <img
+                class='hero__platform-icon'
+                src='https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/applemusic.svg'
+                alt='Apple Music'
+                width='24'
+                height='24'
+              />
+            </a>
+            <a
+              class='hero__platform'
+              href='https://www.deezer.com/us/artist/150277642'
+              target='_blank'
+              rel='noopener'
+              aria-label='Deezer'
+            >
+              <img
+                class='hero__platform-icon'
+                src='https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/deezer.svg'
+                alt='Deezer'
+                width='24'
+                height='24'
+              />
+            </a>
+            <a
+              class='hero__platform'
+              href='https://youtube.com/@rosenofficial'
+              target='_blank'
+              rel='noopener'
+              aria-label='YouTube'
+            >
+              <img
+                class='hero__platform-icon'
+                src='https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/youtube.svg'
+                alt='YouTube'
+                width='24'
+                height='24'
+              />
+            </a>
+            <a
+              class='hero__platform'
+              href='https://instagram.com/yoav.rosen'
+              target='_blank'
+              rel='noopener'
+              aria-label='Instagram'
+            >
+              <img
+                class='hero__platform-icon'
+                src='https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/instagram.svg'
+                alt='Instagram'
+                width='24'
+                height='24'
+              />
+            </a>
+            <a
+              class='hero__platform'
+              href='https://www.tiktok.com/@yoav.rosen'
+              target='_blank'
+              rel='noopener'
+              aria-label='TikTok'
+            >
+              <img
+                class='hero__platform-icon'
+                src='https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/tiktok.svg'
+                alt='TikTok'
+                width='24'
+                height='24'
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class='section' id='contact'>
+        <div class='container'>
+          <h2 class='section__title'>צור קשר</h2>
+          <div class='contact__info'>
+            <p class='contact__block'>
+              <strong>לפניות כלליות</strong><br />
+              <a href='mailto:yoavrosenmusic@gmail.com'>yoavrosenmusic@gmail.com</a>
+            </p>
+            <p class='contact__block'>
+              <strong>לפניות עסקיות: אור הראל</strong><br />
+              טלפון: 053-623-1301<br />
+              <a href='mailto:Orharellbusiness@gmail.com'>Orharellbusiness@gmail.com</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class='footer'>
+      <div class='container'>
+        <p>© <span id='year'></span> רוזן</p>
+      </div>
+    </footer>
+
+    <button
+      class='accessibility-toggle'
+      id='accessibilityToggle'
+      type='button'
+      aria-haspopup='true'
+      aria-expanded='false'
+      aria-label='פתח תפריט נגישות'
+    >
+      ♿
+    </button>
+    <div
+      class='accessibility-panel'
+      id='accessibilityPanel'
+      aria-hidden='true'
+    >
+      <h2 class='accessibility-panel__title'>נגישות</h2>
+      <button
+        class='accessibility-panel__button'
+        type='button'
+        id='a11yText'
+      >
+        טקסט גדול
+      </button>
+      <button
+        class='accessibility-panel__button'
+        type='button'
+        id='a11yContrast'
+      >
+        קונטרסט גבוה
+      </button>
+      <button
+        class='accessibility-panel__button'
+        type='button'
+        id='a11yVideo'
+      >
+        כיבוי/הדלקת וידאו רקע
+      </button>
+    </div>
+
+    <script>
+      const s = document.createElement('script');
+      s.src = 'app.js?v=' + Date.now();
+      document.body.appendChild(s);
+    </script>
+  </body>
+</html>

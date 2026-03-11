@@ -1,0 +1,19 @@
+{
+  "name": "artist-site-main",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:client": "serve client -l 5173",
+    "dev:server": "node server/server.js",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "serve": "^14.2.4"
+  }
+}
+
