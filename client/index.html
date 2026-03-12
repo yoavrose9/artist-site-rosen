@@ -96,13 +96,15 @@
     <canvas id='viz' aria-hidden='true'></canvas>
 
     <nav class='topbar'>
-      <div class='brand'>רוזן</div>
+      <div class='brand'>
+        <img src='assets/rosen-signature.png' alt='רוזן' class='brand__logo' />
+      </div>
       <div class='topbar__links'>
-        <a href='#music'>שירים</a>
-        <a href='#shows'>הופעות</a>
-        <a href='#merch'>מרצ׳</a>
-        <a href='#gallery'>גלריה</a>
         <a href='#contact'>צור קשר</a>
+        <a href='#gallery'>גלריה</a>
+        <a href='#merch'>מרצ׳</a>
+        <a href='#shows'>הופעות</a>
+        <a href='#music'>שירים</a>
       </div>
     </nav>
 
@@ -133,7 +135,25 @@
       <section class='section' id='gallery'>
         <div class='container'>
           <h2 class='section__title'>גלריה</h2>
-          <div class='grid gallery' id='galleryGrid'></div>
+          <div class='gallery__wrapper'>
+            <button
+              class='gallery__arrow gallery__arrow--prev'
+              id='galleryPrev'
+              type='button'
+              aria-label='תמונה קודמת'
+            >
+              ‹
+            </button>
+            <div class='grid gallery' id='galleryGrid'></div>
+            <button
+              class='gallery__arrow gallery__arrow--next'
+              id='galleryNext'
+              type='button'
+              aria-label='תמונה הבאה'
+            >
+              ›
+            </button>
+          </div>
         </div>
       </section>
 

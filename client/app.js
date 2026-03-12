@@ -138,10 +138,11 @@
     };
   
   const galleryFiles = [
-      'IMG_0216.JPG',
-      '579714ed-2845-4571-a44c-298d03927a3c.JPG',
-      'IMG_4113_Original.jpg',
-      'IMG_6083.JPG'
+      'IMG_6083 photo 1.JPG',
+      'IMG_0216 photo 2.JPG',
+      'IMG_0027 photo 3.png',
+      'IMG_4113_Original photo 4.jpg',
+      '579714ed-2845-4571-a44c-298d03927a3c photo 5.JPG'
     ];
   
     const coverBy = async (t) => {
@@ -222,6 +223,56 @@
             '</div>'
         )
         .join('');
+
+      const galleryPrev = document.getElementById('galleryPrev'); // visually RIGHT arrow
+      const galleryNext = document.getElementById('galleryNext'); // visually LEFT arrow
+      const galleryItems = galleryEl.querySelectorAll('.gallery-item');
+      let galleryIndex = 0;
+
+      function updateArrows() {
+        if (!galleryPrev || !galleryNext) return;
+        // אם אנחנו על הראשונה – אין עוד שמאלה => להסתיר את החץ השמאלי (LEFT arrow)
+        galleryNext.style.visibility = galleryIndex <= 0 ? 'hidden' : 'visible';
+        // אם אנחנו על האחרונה – אין עוד ימינה => להסתיר את החץ הימני (RIGHT arrow)
+        galleryPrev.style.visibility =
+          galleryIndex >= galleryItems.length - 1 ? 'hidden' : 'visible';
+      }
+
+      function scrollToIndex(index) {
+        if (!galleryItems.length) return;
+        galleryIndex = Math.max(0, Math.min(index, galleryItems.length - 1));
+        const item = galleryItems[galleryIndex];
+        if (item && item.scrollIntoView) {
+          item.scrollIntoView({
+            behavior: 'smooth',
+            inline: 'start',
+            block: 'nearest'
+          });
+        }
+        updateArrows();
+      }
+
+      function nextSlide() {
+        // 3. nextSlide: index++
+        scrollToIndex(galleryIndex + 1);
+      }
+
+      function prevSlide() {
+        // 4. prevSlide: index--
+        scrollToIndex(galleryIndex - 1);
+      }
+
+      if (galleryPrev) {
+        // RIGHT arrow (→) = NEXT slide
+        galleryPrev.addEventListener('click', nextSlide);
+      }
+      if (galleryNext) {
+        // LEFT arrow (←) = PREVIOUS slide
+        galleryNext.addEventListener('click', prevSlide);
+      }
+
+      // להתחיל על התמונה הראשונה ולהגדיר חצים
+      scrollToIndex(0);
     }
   
     const y = document.getElementById('year');
@@ -235,7 +286,8 @@
       'היית לי הסולם בעולם שכולו רק מוקף בנחשים',
       'עדיין לא החלטתי זה שיר של פרידה או פריקה',
       'הרוזן הוא על כס אז זה כס מלוכה',
-      'כל סטורי שלך מרגיש לי כמו חתך'
+      'כל סטורי שלך מרגיש לי כמו חתך',
+      'יצאת בהצהרות פוליטיקאית אין לך פלאן בי'
     ];
     const heroQuoteEl = document.getElementById('heroQuote');
     let heroQueue = [];
