@@ -469,12 +469,17 @@ body {
 
 .gallery-prev,
 .gallery-next,
+.gallery-prev:hover,
+.gallery-next:hover,
 .gallery-prev:active,
 .gallery-next:active,
 .gallery-prev:focus,
 .gallery-next:focus {
   transform: none !important;
+  scale: none !important;
+  transition: opacity 0.2s ease !important;
   outline: none;
+  box-shadow: none;
 }
 
 .footer {
