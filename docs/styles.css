@@ -323,20 +323,17 @@ body {
   gap: 16px;
 }
 
-/* Songs grid: desktop 3 columns, mobile 1 column */
-.grid.songs {
-  display: grid;
-  gap: 24px;
-}
-
+/* Songs grid: desktop only, applied to #songs */
 @media (min-width: 769px) {
-  .grid.songs {
+  #songs {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
     max-width: 1100px;
     margin: 0 auto;
   }
 
-  .song {
+  #songs .song {
     max-width: 340px;
     margin: 0 auto;
   }
@@ -742,7 +739,7 @@ body.scrolled-bg .bg-overlay {
     justify-content: flex-start;
   }
 
-  .grid.songs {
-    grid-template-columns: 1fr;
+  #songs {
+    display: block;
   }
 }
