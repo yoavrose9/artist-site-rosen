@@ -394,7 +394,7 @@
     scrollIndicator.addEventListener('click', () => {
       const target = document.getElementById('music');
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        window.scrollTo({ top: target.offsetTop, left: 0, behavior: 'smooth' });
       }
     });
   }
