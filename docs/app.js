@@ -274,6 +274,23 @@
   
     const y = document.getElementById('year');
     if (y) y.textContent = String(new Date().getFullYear());
+
+    // תפריט מובייל (המבורגר)
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+      });
+
+      mobileMenu.addEventListener('click', (e) => {
+        const t = e.target;
+        if (t && t.tagName === 'A') {
+          mobileMenu.classList.remove('open');
+        }
+      });
+    }
   
     // משפטים מתחלפים בהרואו
     const heroQuotes = [
