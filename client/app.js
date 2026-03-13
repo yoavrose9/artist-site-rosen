@@ -12,10 +12,8 @@ resetScrollTop();
 document.addEventListener('DOMContentLoaded', resetScrollTop);
 
 document.addEventListener('DOMContentLoaded', () => {
-  const gallery = document.querySelector('.gallery-track');
-  if (gallery) {
-    gallery.scrollLeft = 0;
-  }
+  const track = document.querySelector('.gallery-track');
+  if (track) track.scrollLeft = 0;
 });
 window.addEventListener('load', resetScrollTop);
 setTimeout(resetScrollTop, 50);
@@ -248,27 +246,24 @@ setTimeout(resetScrollTop, 300);
         )
         .join('');
 
-      const galleryPrev = document.getElementById('galleryPrev');
-      const galleryNext = document.getElementById('galleryNext');
-      const galleryTrack = document.querySelector('.gallery-track') || galleryEl;
-
       galleryEl.scrollLeft = 0;
-
-      if (galleryNext && galleryTrack) {
-        galleryNext.addEventListener('click', () => {
-          galleryTrack.scrollBy({
-            left: 320,
-            behavior: 'smooth'
-          });
+      const track = document.querySelector('.gallery-track') || galleryEl;
+      const prevBtn = document.querySelector('.gallery-prev');
+      const nextBtn = document.querySelector('.gallery-next');
+      if (track && prevBtn && nextBtn) {
+        function updateArrows() {
+          const maxScroll = track.scrollWidth - track.clientWidth;
+          prevBtn.style.display = track.scrollLeft <= 0 ? 'none' : 'block';
+          nextBtn.style.display = track.scrollLeft >= maxScroll - 2 ? 'none' : 'block';
+        }
+        nextBtn.addEventListener('click', () => {
+          track.scrollBy({ left: 320, behavior: 'smooth' });
         });
-      }
-      if (galleryPrev && galleryTrack) {
-        galleryPrev.addEventListener('click', () => {
-          galleryTrack.scrollBy({
-            left: -320,
-            behavior: 'smooth'
-          });
+        prevBtn.addEventListener('click', () => {
+          track.scrollBy({ left: -320, behavior: 'smooth' });
         });
+        track.addEventListener('scroll', updateArrows);
+        updateArrows();
       }
     }
   
