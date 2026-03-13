@@ -1,3 +1,9 @@
+// אל תשחזר גלילה אוטומטית – תמיד להתחיל למעלה
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 (async () => {
     const icon = (u, l) =>
       '<img class="icon__img" src="' +
@@ -395,4 +401,9 @@
       bodyEl.classList.remove('scrolled-bg');
     }
   });
+
+  // להתחיל תמיד מהחלק העליון של העמוד כשנכנסים בלי עוגן (#)
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+  }
   })();
