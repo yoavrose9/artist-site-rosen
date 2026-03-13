@@ -780,22 +780,24 @@ body.scrolled-bg .bg-overlay {
     letter-spacing: 0.4px;
   }
   
-  .topbar__links {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
+  @media (min-width: 769px) {
+    .topbar__links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
   
-  .topbar__links a {
-    padding: 8px 10px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--border);
-    font-size: 13px;
-  }
+    .topbar__links a {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border);
+      font-size: 13px;
+    }
   
-  .topbar__links a:hover {
-    background: rgba(255, 255, 255, 0.16);
+    .topbar__links a:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
   }
   
   header,
