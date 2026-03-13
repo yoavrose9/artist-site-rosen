@@ -15,7 +15,7 @@
     />
   </head>
   <body>
-    <a href="#music" class="skip-link">דלג לתוכן הראשי</a>
+    <a href="#songs" class="skip-link">דלג לתוכן הראשי</a>
     <video
       class='bg-video'
       src='assets/background/הכל%20בשבילך%20קאנבס.mp4'
@@ -90,9 +90,9 @@
           />
         </a>
       </div>
-      <button class='scroll-indicator' id='scrollIndicator' type='button' aria-label='גלול למטה'>
-        ↓
-      </button>
+      <a href="#songs" class="scroll-down" aria-label="גלול לשירים">
+        <span class="arrow"></span>
+      </a>
     </div>
     <canvas id='viz' aria-hidden='true'></canvas>
 
@@ -102,7 +102,7 @@
         <a href='#gallery'>גלריה</a>
         <a href='#merch'>מרצ׳</a>
         <a href='#shows'>הופעות</a>
-        <a href='#music'>שירים</a>
+        <a href='#songs'>שירים</a>
       </div>
       <div class='brand'>
         <img src='assets/rosen-signature.png' alt='רוזן' class='brand__logo' />
@@ -116,7 +116,8 @@
         ☰
       </button>
       <nav class='mobile-menu' id='mobileMenu'>
-        <a href='#music'>שירים</a>
+        <button class='close-menu' id='menuClose' type='button' aria-label='סגור תפריט'>×</button>
+        <a href='#songs'>שירים</a>
         <a href='#shows'>הופעות</a>
         <a href='#merch'>מרצ׳</a>
         <a href='#gallery'>גלריה</a>
@@ -125,7 +126,7 @@
     </nav>
 
     <main>
-      <section class='section' id='music'>
+      <section class='section' id='songs'>
         <div class='container'>
           <h2 class='section__title'>שירים</h2>
           <div class='grid songs' id='songs'></div>

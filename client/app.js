@@ -292,15 +292,22 @@ setTimeout(resetScrollTop, 300);
     const y = document.getElementById('year');
     if (y) y.textContent = String(new Date().getFullYear());
 
-    // תפריט מובייל (המבורגר)
+    // תפריט מובייל (המבורגר + כפתור סגירה)
     const menuToggle = document.getElementById('menuToggle');
+    const menuClose = document.getElementById('menuClose');
     const mobileMenu = document.getElementById('mobileMenu');
 
     if (menuToggle && mobileMenu) {
       menuToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('open');
       });
-
+    }
+    if (menuClose && mobileMenu) {
+      menuClose.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+      });
+    }
+    if (mobileMenu) {
       mobileMenu.addEventListener('click', (e) => {
         const t = e.target;
         if (t && t.tagName === 'A') {
@@ -404,17 +411,6 @@ setTimeout(resetScrollTop, 300);
         );
       }
     }
-
-  // גלילה למטה מההרואו
-  const scrollIndicator = document.getElementById('scrollIndicator');
-  if (scrollIndicator) {
-    scrollIndicator.addEventListener('click', () => {
-      const target = document.getElementById('music');
-      if (target) {
-        window.scrollTo({ top: target.offsetTop, left: 0, behavior: 'smooth' });
-      }
-    });
-  }
 
   // החלפת רקע לווידאו/תמונה לפי גלילה
   window.addEventListener('scroll', () => {
