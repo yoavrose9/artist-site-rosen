@@ -323,9 +323,9 @@ body {
   gap: 16px;
 }
 
-/* Songs grid: desktop only, applied to #songs */
+/* Songs grid: desktop only – force grid over flex */
 @media (min-width: 769px) {
-  #songs {
+  #songs.section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
