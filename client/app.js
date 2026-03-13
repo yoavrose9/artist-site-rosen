@@ -248,34 +248,35 @@ setTimeout(resetScrollTop, 300);
       if (track && prevBtn && nextBtn) {
         const scrollAmount = 320;
 
+        track.scrollLeft = 0;
+
+        prevBtn.replaceWith(prevBtn.cloneNode(true));
+        nextBtn.replaceWith(nextBtn.cloneNode(true));
+
+        const newPrevBtn = document.querySelector('.gallery-prev');
+        const newNextBtn = document.querySelector('.gallery-next');
+
         const updateArrows = () => {
           const maxScroll = track.scrollWidth - track.clientWidth;
-          prevBtn.style.display = track.scrollLeft <= 1 ? 'none' : 'flex';
-          nextBtn.style.display = track.scrollLeft >= maxScroll - 1 ? 'none' : 'flex';
+          newPrevBtn.style.display = track.scrollLeft <= 1 ? 'none' : 'flex';
+          newNextBtn.style.display = track.scrollLeft >= maxScroll - 1 ? 'none' : 'flex';
         };
 
-        const resetTrack = () => {
-          track.scrollLeft = 0;
-          updateArrows();
-        };
+        updateArrows();
 
-        prevBtn.addEventListener('click', (e) => {
+        newPrevBtn.addEventListener('click', (e) => {
           e.preventDefault();
           e.stopPropagation();
           track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         });
 
-        nextBtn.addEventListener('click', (e) => {
+        newNextBtn.addEventListener('click', (e) => {
           e.preventDefault();
           e.stopPropagation();
           track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         });
 
         track.addEventListener('scroll', updateArrows);
-        window.addEventListener('load', resetTrack);
-        document.addEventListener('DOMContentLoaded', resetTrack);
-        setTimeout(resetTrack, 50);
-        resetTrack();
       }
     }
   

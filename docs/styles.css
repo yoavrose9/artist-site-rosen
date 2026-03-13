@@ -468,11 +468,7 @@ body {
 }
 
 .gallery-prev,
-.gallery-next {
-  transform: none !important;
-  transition: opacity 0.2s ease;
-}
-
+.gallery-next,
 .gallery-prev:active,
 .gallery-next:active,
 .gallery-prev:focus,
