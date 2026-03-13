@@ -10,11 +10,6 @@ const resetScrollTop = () => {
 
 resetScrollTop();
 document.addEventListener('DOMContentLoaded', resetScrollTop);
-
-document.addEventListener('DOMContentLoaded', () => {
-  const track = document.querySelector('.gallery-track');
-  if (track) track.scrollLeft = 0;
-});
 window.addEventListener('load', resetScrollTop);
 setTimeout(resetScrollTop, 50);
 setTimeout(resetScrollTop, 150);
@@ -246,26 +241,41 @@ setTimeout(resetScrollTop, 300);
         )
         .join('');
 
-      galleryEl.scrollLeft = 0;
-      const track = document.querySelector('.gallery-track') || galleryEl;
+      const track = document.querySelector('.gallery-track');
       const prevBtn = document.querySelector('.gallery-prev');
       const nextBtn = document.querySelector('.gallery-next');
+
       if (track && prevBtn && nextBtn) {
-        function updateArrows() {
+        const scrollAmount = 320;
+
+        const updateArrows = () => {
           const maxScroll = track.scrollWidth - track.clientWidth;
-          prevBtn.style.display = track.scrollLeft <= 0 ? 'none' : 'block';
-          nextBtn.style.display = track.scrollLeft >= maxScroll - 2 ? 'none' : 'block';
-        }
-        nextBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          track.scrollBy({ left: 320, behavior: 'smooth' });
-        });
+          prevBtn.style.display = track.scrollLeft <= 1 ? 'none' : 'flex';
+          nextBtn.style.display = track.scrollLeft >= maxScroll - 1 ? 'none' : 'flex';
+        };
+
+        const resetTrack = () => {
+          track.scrollLeft = 0;
+          updateArrows();
+        };
+
         prevBtn.addEventListener('click', (e) => {
           e.preventDefault();
-          track.scrollBy({ left: -320, behavior: 'smooth' });
+          e.stopPropagation();
+          track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         });
+
+        nextBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+
         track.addEventListener('scroll', updateArrows);
-        updateArrows();
+        window.addEventListener('load', resetTrack);
+        document.addEventListener('DOMContentLoaded', resetTrack);
+        setTimeout(resetTrack, 50);
+        resetTrack();
       }
     }
   

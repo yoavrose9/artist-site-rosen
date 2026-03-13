@@ -397,14 +397,17 @@ body {
 .gallery-track {
   display: flex;
   gap: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  direction: ltr;
   scroll-padding-inline: 0;
   padding-left: 0;
   margin-left: 0;
+}
+
+.gallery-track {
+  direction: ltr;
+  overflow-x: auto;
+  scroll-behavior: smooth;
 }
 
 .grid.gallery {
@@ -466,12 +469,16 @@ body {
 
 .gallery-prev,
 .gallery-next {
-  transform: none;
+  transform: none !important;
+  transition: opacity 0.2s ease;
 }
 
 .gallery-prev:active,
-.gallery-next:active {
-  transform: none;
+.gallery-next:active,
+.gallery-prev:focus,
+.gallery-next:focus {
+  transform: none !important;
+  outline: none;
 }
 
 .footer {
